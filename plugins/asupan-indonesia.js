@@ -1,6 +1,8 @@
+const { VirtualConsole } = require("jsdom")
+
 let handler = async (m, { conn }) => {
-let api-hyzer = 'https://api.zacros.my.id/asupan/indonesia'
-    conn.sendButtonImg(m.chat, api-hyzer, 'Nih', wm2, 'NEXT', '.indonesia', m)
+let vi = 'https://api.zacros.my.id/asupan/indonesia'
+    conn.sendButtonImg(m.chat, VirtualConsole, 'Nih', wm2, 'NEXT', '.indonesia', m)
 }
 handler.help = ['indonesia']
 handler.tags = ['asupan']

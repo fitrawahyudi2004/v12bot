@@ -2,7 +2,7 @@ let handler = async (m, { conn }) => {
 	conn.reply(m.chat, `╠═〘 PEMBAYARAN 〙 ═
 ╠═ Untuk Pembayaran Via DANA
 ╠➥ Ke nomer ini
-║➥ 085822347348
+║➥ 081262166032
 ║
 ╠═〘 Fitur 〙 ═
 ║
@@ -23,8 +23,8 @@ let handler = async (m, { conn }) => {
 ║   *FITUR LAINNYA*
 ║ 
 ╠═ ©2022
-╠═ Scrip original by ArullOfc
-╠═〘 ArullBotzMD 〙 ═`.trim(), m)
+╠═ Scrip original by FWD
+╠═〘 MysqlBotMD 〙 ═`.trim(), m)
 }
 
 handler.command = /^viadana$/i
