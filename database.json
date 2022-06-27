@@ -9318,7 +9318,7 @@
       "level": 0,
       "pasangan": "",
       "pc": 0,
-      "exp": 824,
+      "exp": 849,
       "coin": 0,
       "atm": 0,
       "limit": 20,
@@ -12126,6 +12126,12 @@
       "total": 3,
       "success": 0,
       "last": 1656313298122,
+      "lastSuccess": 0
+    },
+    "game-tebaklagu.js": {
+      "total": 2,
+      "success": 0,
+      "last": 1656313307071,
       "lastSuccess": 0
     }
   },
