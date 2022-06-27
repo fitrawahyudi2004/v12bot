@@ -31,8 +31,6 @@ global.fotonya1 = 'https://i.postimg.cc/G2z85600/bot.jpg' //ganti jadi foto bot 
 
 global.fotonya2 = 'https://i.postimg.cc/G2z85600/bot.jpg' //ini juga ganti 
 
-global.fotonya2 = 'https://telegra.ph/file/57f6828f84e24c3c58dfe.jpg' //ini juga ganti 
-
 global.lolkey = 'Papah-Chan' //biar mudah ngegantinya semisal apikeynya expired:v
 global.zenzkey = 'BagasPrdn' //ganti jadi apikey lu kalau expired
 global.wm = '↻MysqlBot 𝙼𝙳'
