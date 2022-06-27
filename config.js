@@ -28,11 +28,11 @@ global.price1 = '𝐍𝐈𝐇 𝐁𝐀𝐍𝐆 𝐋𝐈𝐒𝐓 𝐒𝐄𝐖𝐀
 
 //=======『 Tampilan Dan Lainnya 』============//
 global.fotonya1 = 'https://i.postimg.cc/G2z85600/bot.jpg' //ganti jadi foto bot mu
-<<<<<<< HEAD
+
 global.fotonya2 = 'https://i.postimg.cc/G2z85600/bot.jpg' //ini juga ganti 
-=======
+
 global.fotonya2 = 'https://telegra.ph/file/57f6828f84e24c3c58dfe.jpg' //ini juga ganti 
->>>>>>> b5b039edf6d15f2945110b99f35d9922b26cf7e5
+
 global.lolkey = 'Papah-Chan' //biar mudah ngegantinya semisal apikeynya expired:v
 global.zenzkey = 'BagasPrdn' //ganti jadi apikey lu kalau expired
 global.wm = '↻MysqlBot 𝙼𝙳'
