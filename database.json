@@ -9318,7 +9318,7 @@
       "level": 0,
       "pasangan": "",
       "pc": 0,
-      "exp": 849,
+      "exp": 1306,
       "coin": 0,
       "atm": 0,
       "limit": 20,
@@ -9511,7 +9511,7 @@
       "level": 0,
       "pasangan": "",
       "pc": 0,
-      "exp": 0,
+      "exp": 311,
       "coin": 0,
       "atm": 0,
       "limit": 20,
@@ -9638,19 +9638,19 @@
       "lastturu": 0,
       "lastseen": 0,
       "lastSetStatus": 0,
-      "registered": false,
+      "registered": true,
       "mangga": 0,
       "stroberi": 0,
       "semangka": 0,
       "jeruk": 0,
-      "name": "F",
-      "age": -1,
-      "regTime": -1,
+      "name": "@6281377468079",
+      "age": 18,
+      "regTime": 1656347780053,
       "premium": false,
       "premiumTime": 0,
       "job": "Pengangguran",
       "lbars": "[▒▒▒▒▒▒▒▒▒]",
-      "role": "Newbie ㋡",
+      "role": "Warrior V",
       "autolevelup": true,
       "lastIstigfar": 0,
       "glimit": 20,
@@ -11446,13 +11446,27 @@
       "sBye": "",
       "sPromote": "",
       "sDemote": "",
-      "delete": true,
+      "delete": false,
       "antiLink": true,
       "viewonce": true,
       "antiToxic": true,
       "simi": false
     },
     "120363026216268270@g.us": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": false,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": true,
+      "antiLink": true,
+      "viewonce": true,
+      "antiToxic": true,
+      "simi": false
+    },
+    "6281377468079@s.whatsapp.net": {
       "isBanned": false,
       "welcome": true,
       "detect": false,
@@ -12021,10 +12035,10 @@
       "lastSuccess": 1640675534536
     },
     "main-menu.js": {
-      "total": 18,
-      "success": 18,
-      "last": 1656312976767,
-      "lastSuccess": 1656312976767
+      "total": 39,
+      "success": 39,
+      "last": 1656347777922,
+      "lastSuccess": 1656347777922
     },
     "info-creator.js": {
       "total": 2,
@@ -12045,10 +12059,10 @@
       "lastSuccess": 1656311748577
     },
     "downloader-play.js": {
-      "total": 2,
-      "success": 2,
-      "last": 1656310419209,
-      "lastSuccess": 1656310419209
+      "total": 3,
+      "success": 3,
+      "last": 1656343521884,
+      "lastSuccess": 1656343521884
     },
     "arullbotz.js": {
       "total": 3,
@@ -12057,10 +12071,10 @@
       "lastSuccess": 1656310466358
     },
     "_bot.js": {
-      "total": 2,
-      "success": 2,
-      "last": 1656310476560,
-      "lastSuccess": 1656310476560
+      "total": 6,
+      "success": 6,
+      "last": 1656347293006,
+      "lastSuccess": 1656347293006
     },
     "tutorial.js": {
       "total": 2,
@@ -12117,10 +12131,10 @@
       "lastSuccess": 1656312700287
     },
     "xp-regist.js": {
-      "total": 2,
-      "success": 2,
-      "last": 1656312688771,
-      "lastSuccess": 1656312688771
+      "total": 5,
+      "success": 4,
+      "last": 1656347780055,
+      "lastSuccess": 1656347780055
     },
     "sticker-sticker.js": {
       "total": 3,
@@ -12132,6 +12146,48 @@
       "total": 2,
       "success": 0,
       "last": 1656313307071,
+      "lastSuccess": 0
+    },
+    "viewonce.js": {
+      "total": 2,
+      "success": 0,
+      "last": 1656343538075,
+      "lastSuccess": 0
+    },
+    "owner-enable.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1656343680751,
+      "lastSuccess": 1656343680751
+    },
+    "tod.js": {
+      "total": 7,
+      "success": 3,
+      "last": 1656344640545,
+      "lastSuccess": 1656344616612
+    },
+    "stalker-igstalk.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1656345596450,
+      "lastSuccess": 1656345596450
+    },
+    "info-database.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1656345966513,
+      "lastSuccess": 1656345966513
+    },
+    "unreg.js": {
+      "total": 3,
+      "success": 1,
+      "last": 1656346496581,
+      "lastSuccess": 1656346496581
+    },
+    "verify.js": {
+      "total": 2,
+      "success": 0,
+      "last": 1656347624430,
       "lastSuccess": 0
     }
   },

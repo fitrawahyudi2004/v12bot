@@ -1,6 +1,6 @@
 const simple = require('./lib/simple')
 const util = require('util')
-
+const knights = require('knights-canvas')
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
 
@@ -690,28 +690,49 @@ module.exports = {
             if (opts['queque'] && m.text && quequeIndex !== -1) this.msgqueque.splice(quequeIndex, 1)
         }
     },
-    async participantsUpdate({ id, participants, action }) {
-        if (opts['self']) return
-        // if (id in conn.chats) return // First login will spam
-        if (global.isInit) return
-        let chat = global.db.data.chats[id] || {}
-        let fetch = require('node-fetch')
+    async participantsUpdate({ jid, participants, action }) {
+        let chat = global.db.data.chats[jid] || {}
         let text = ''
         switch (action) {
             case 'add':
             case 'remove':
                 if (chat.welcome) {
-                    let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+                    let groupMetadata = await this.groupMetadata(jid)
                     for (let user of participants) {
-                       let pp = './src/welcome.jpg'
+                        // let pp_group = './src/avatar_contact.png'
+                        let pp = 'https://i.ibb.co/GRF1Gk0/download.png'
+                        let ppgc = 'https://i.ibb.co/GRF1Gk0/download.png'
                         try {
-                            pp = await this.profilePictureUrl(user, 'image')
+                            pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
+                            ppgc = await uploadImage(await (await fetch(await this.getProfilePicture(jid))).buffer())
                         } catch (e) {
                         } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Yah,si Beban Masuk Grup @user').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
-                                (chat.sBye || this.bye || conn.bye || 'Sip, Beban Berkurang @user!')).replace('@user', '@' + user.split('@')[0])
-                                this.sendButtonImg(id, pp, text, "Group Message", "Tampilan Menu", ".menu", null)
+                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Selamat datang, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
+                                (chat.sBye || this.bye || conn.bye || 'Sampai jumpa, @user!')).replace(/@user/g, '@' + user.split`@`[0])
+                            let wel = await new knights.Welcome()
+                                .setUsername(this.getName(user))
+                                .setGuildName(this.getName(jid))
+                                .setGuildIcon(ppgc)
+                                .setMemberCount(groupMetadata.participants.length)
+                                .setAvatar(pp)
+                                .setBackground("https://i.ibb.co/KhtRxwZ/dark.png")
+                                .toAttachment()
+
+                            let lea = await new knights.Goodbye()
+                                .setUsername(this.getName(user))
+                                .setGuildName(this.getName(jid))
+                                .setGuildIcon(ppgc)
+                                .setMemberCount(groupMetadata.participants.length)
+                                .setAvatar(pp)
+                                .setBackground("https://i.ibb.co/KhtRxwZ/dark.png")
+                                .toAttachment()
+
+                            this.sendFile(jid, action === 'add' ? wel.toBuffer() : lea.toBuffer(), 'pp.jpg', text, null, false, {
+                                contextInfo: {
+                                    mentionedJid: [user]
                                 }
+                            })
+                        }
                     }
                 }
                 break
@@ -729,19 +750,21 @@ module.exports = {
         }
     },
     async delete(m) {
-    let chat = global.db.data.chats[m.key.remoteJid]
-    if (chat.delete) return
-    await this.send2But(m.key.remoteJid, `
+        if (m.key.fromMe) return
+        let chat = global.db.data.chats[m.key.remoteJid]
+        if (chat.delete) return
+        await this.sendButton(m.key.remoteJid, `
 Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
 
-ketik *.off delete* untuk mematikan pesan ini
-`.trim(), wm, 'Store', '.store', 'Menu', '.menu', m.message, {
-      contextInfo: {
-        mentionedJid: [m.participant]
-      }
-    })
-    this.copyNForward(m.key.remoteJid, m.message).catch(e => console.log(e, m))
-  },
+⬇️ Tekan button di bawah untuk mematikan pesan ini
+`.trim(), '', '✔️ MATIKAN ANTI DELETE', ',on delete', {
+            quoted: m.message,
+            contextInfo: {
+                mentionedJid: [m.participant]
+            }
+        })
+        this.copyNForward(m.key.remoteJid, m.message).catch(e => console.log(e, m))
+    },
   async onCall(json) {
     let { from } = json[2][0][1]
     let users = global.db.data.users

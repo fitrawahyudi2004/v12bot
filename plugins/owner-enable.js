@@ -7,20 +7,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
   let isAll = false
   let isUser = false
   switch (type) {
-    case 'sholat':
-    case 'closegroup':
-    case 'autoclosegroup':
-      if (!m.isGroup) {
-        if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
-        }
-      } else if (!(isAdmin || isOwner)) {
-        global.dfail('admin', m, conn)
-        throw false
-      }
-      chat.closeGroup = isEnable
-      break
     case 'w':
     case 'welcome':
       if (!m.isGroup) {
@@ -58,7 +44,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.descUpdate = isEnable
       break
+    case 'del':
     case 'delete':
+      isUser = true
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
@@ -66,16 +54,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         }
       }
       chat.delete = isEnable
-      break
-    case 'viewonce':
-    case 'antiviewonce':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.viewonce = isEnable
       break
     case 'antidelete':
       if (m.isGroup) {
@@ -114,17 +92,21 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('rowner', m, conn)
         throw false
       }
-      setting.self = !isEnable
+      global.opts['self'] = !isEnable
       break
     case 'antilink':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
+    case 'antiurl':
+      if (!m.isGroup) {
+        if (!isOwner) {
+          global.dfail('group', m, conn)
           throw false
         }
+      } else if (!(isAdmin || isOwner)) {
+        global.dfail('admin', m, conn)
+        throw false
       }
       chat.antiLink = isEnable
-      break
+    case 's':
     case 'stiker':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -150,14 +132,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         throw false
       }
       conn.callWhitelistMode = isEnable
-      break
-    case 'tag':
-      isAll = true
-      if (!isOwner) {
-        global.dfail('owner', m, conn)
-        throw false
-      }
-      setting.tag = isEnable
       break
     case 'grup':
     case 'gruponly':
@@ -186,32 +160,20 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       setting.anticall = isEnable
       break
     case 'antitroli':
-    case 'antibuggc':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
       }
-      chat.antitroli = isEnable
+      setting.antitroli = isEnable
       break
-    case 'antivirtex':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.antivirtex = isEnable
-      break  
     case 'antispam':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
       }
-      chat.antispam = isEnable
+      setting.antispam = isEnable
       break
     case 'anon':
       isAll = true
@@ -222,13 +184,12 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       setting.anon = isEnable
       break
     case 'nsfw':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
       }
-      chat.nsfw = isEnable
+      setting.nsfw = isEnable
       break
     case 'jadibot':
       isAll = true
@@ -238,59 +199,47 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       setting.jadibot = isEnable
       break
-    case 'clear':
-      isAll = true
-      if (!isOwner) {
-        global.dfail('owner', m, conn)
+    case 'simi':
+      if (m.isGroup) {
+        global.dfail('private', m, conn)
+        throw false
+
+      } else if (!(isAdmin || isOwner)) {
+        global.dfail('admin', m, conn)
         throw false
       }
-      chat.clear = isEnable
+      chat.simi = isEnable
       break
-    case 'autoread':
-    case 'read':
-      isAll = true
-      if (!isOwner) {
-      	global.dfail('owner', m, conn)
-      	throw false
-      }
-      global.opts['autoread'] = isEnable
-      break
-    case 'epe':
-    case 'ephe':
-    case 'ephemeral':
-      isAll = true
-      if (!isOwner) {
-      	global.dfail('owner', m, conn)
-      	throw false
-      }
-      setting.epe = isEnable
-      break
-    case 'simi':
+    case 'viewonce':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
           throw false
         }
       }
-      chat.simi = isEnable
+      chat.viewonce = isEnable
+      break
+    case 'autoread':
+      isAll = true
+      if (!isROwner) {
+        global.dfail('rowner', m, conn)
+        throw false
+      }
+      global.opts['autoread'] = isEnable
       break
     default:
       if (!/[01]/.test(command)) throw `
 ┌〔 Daftar Opsi 〕
-│ ${isOwner ? '\n├ tag\n├ anon\n├ antispam\n├ antivirtex\n├ backup\n├ clear\n├ autoread\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ clear\n├ mycontact\n├ ephe' : ''}
-├ autoclosegroup
-├ antiviewonce
+│ ${isOwner ? '\n├ anon\n├ antispam\n├ antitroli\n├ backup\n├ clear\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ mycontact' : ''}
 ├ antilink
-├ antitroli
-├ antibuggc
 ├ autolevelup
-├ antibadword
 ├ delete
 ├ detect
 ├ document
 ├ stiker
 ├ simi
 ├ welcome
+├ viewonce
 │ 
 └────
 Contoh:

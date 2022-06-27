@@ -570,13 +570,13 @@ const template = generateWAMessageFromContent(m.key.remoteJid, proto.Message.fro
 handler.help = ['Krizyn']
 handler.tags = ['main']
 handler.command = /^(alive|panel|krizyn|menu|help|\?)$/i
-handler.register = true
+
 handler.owner = false
 handler.mods = false
 handler.premium = false
 handler.group = false
 handler.private = false
-handler.register = false
+handler.register = true
 handler.admin = false
 handler.botAdmin = false
 
