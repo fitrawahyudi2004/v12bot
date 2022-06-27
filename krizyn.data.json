@@ -39,8 +39,13 @@
     },
     "registrationId": 133,
     "advSecretKey": "QW535Ir43nbN+LEvGQQTcOhkhckSZi+KXH30QkMYkpk=",
+<<<<<<< HEAD
     "nextPreKeyId": 35,
     "firstUnuploadedPreKeyId": 35,
+=======
+    "nextPreKeyId": 31,
+    "firstUnuploadedPreKeyId": 31,
+>>>>>>> 06f26bcd783cdc8193366338fade9a40a2a740f0
     "serverHasPreKeys": true,
     "account": {
       "details": "CMPotYsDEMHu5JUGGAE=",
@@ -51,8 +56,12 @@
     "me": {
       "id": "6281377468079:2@s.whatsapp.net",
       "verifiedName": "",
+<<<<<<< HEAD
       "name": "F",
       "jid": "6281377468079@s.whatsapp.net"
+=======
+      "name": "F"
+>>>>>>> 06f26bcd783cdc8193366338fade9a40a2a740f0
     },
     "signalIdentities": [
       {
@@ -361,6 +370,7 @@
           "type": "Buffer",
           "data": "YMGMGbTcdZb8j0EtKhmaEQm2owzU6B8MtRKSqCgC+DA="
         }
+<<<<<<< HEAD
       },
       "31": {
         "private": {
@@ -384,6 +394,9 @@
         }
       },
       "34": null
+=======
+      }
+>>>>>>> 06f26bcd783cdc8193366338fade9a40a2a740f0
     },
     "sessions": {
       "6281377468079.0": {
@@ -394,6 +407,7 @@
               "ephemeralKeyPair": {
                 "pubKey": "BaRyXfV52N5xBugSToCf1ZcNVcNao5K3STmSua/ryCt/",
                 "privKey": "mJqsL/0/le6/qnYVrE5BiqurcaSL0oNWPMZ8xybQdlA="
+<<<<<<< HEAD
               },
               "lastRemoteEphemeralKey": "BVZAj/jL9TZDdzPZsZq9H5/f83Ba/ZUOE59oZpsr1tQj",
               "previousCounter": 1,
@@ -578,6 +592,8 @@
                 },
                 "chainType": 2,
                 "messageKeys": {}
+=======
+>>>>>>> 06f26bcd783cdc8193366338fade9a40a2a740f0
               },
               "BWSlWglTVqQsFQ0AoY+IulIfZ56Zjk0MsiIKkf6s7IVZ": {
                 "chainKey": {
@@ -2750,4 +2766,8 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 06f26bcd783cdc8193366338fade9a40a2a740f0
